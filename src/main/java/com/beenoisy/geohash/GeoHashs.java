@@ -103,6 +103,45 @@ public final class GeoHashs {
     }
 
     /**
+     * Base32 decode table
+     */
+    private static final Map<Character, String> BASE32_DECODE_MAP = new HashMap<Character, String>();
+    static {
+        BASE32_DECODE_MAP.put('0', "00000");
+        BASE32_DECODE_MAP.put('1', "00001");
+        BASE32_DECODE_MAP.put('2', "00010");
+        BASE32_DECODE_MAP.put('3', "00011");
+        BASE32_DECODE_MAP.put('4', "00100");
+        BASE32_DECODE_MAP.put('5', "00101");
+        BASE32_DECODE_MAP.put('6', "00110");
+        BASE32_DECODE_MAP.put('7', "00111");
+        BASE32_DECODE_MAP.put('8', "01000");
+        BASE32_DECODE_MAP.put('9', "01001");
+        BASE32_DECODE_MAP.put('b', "01010");
+        BASE32_DECODE_MAP.put('c', "01011");
+        BASE32_DECODE_MAP.put('d', "01100");
+        BASE32_DECODE_MAP.put('e', "01101");
+        BASE32_DECODE_MAP.put('f', "01110");
+        BASE32_DECODE_MAP.put('g', "01111");
+        BASE32_DECODE_MAP.put('h', "10000");
+        BASE32_DECODE_MAP.put('j', "10001");
+        BASE32_DECODE_MAP.put('k', "10010");
+        BASE32_DECODE_MAP.put('m', "10011");
+        BASE32_DECODE_MAP.put('n', "10100");
+        BASE32_DECODE_MAP.put('p', "10101");
+        BASE32_DECODE_MAP.put('q', "10110");
+        BASE32_DECODE_MAP.put('r', "10111");
+        BASE32_DECODE_MAP.put('s', "11000");
+        BASE32_DECODE_MAP.put('t', "11001");
+        BASE32_DECODE_MAP.put('u', "11010");
+        BASE32_DECODE_MAP.put('v', "11011");
+        BASE32_DECODE_MAP.put('w', "11100");
+        BASE32_DECODE_MAP.put('x', "11101");
+        BASE32_DECODE_MAP.put('y', "11110");
+        BASE32_DECODE_MAP.put('z', "11111");
+    }
+
+    /**
      * encode <br>
      * 
      * @param lat
@@ -174,6 +213,16 @@ public final class GeoHashs {
             String binaryItem = binaryNum.substring(index, index + 5);
             result.append(BASE32_ENCODE_MAP.get(binaryItem));
             index = index + 5;
+        }
+        return result.toString();
+    }
+
+    private static String base32decode(
+                    String base32String) {
+        StringBuilder result = new StringBuilder();
+        int index = 0;
+        while (index < base32String.length()) {
+            result.append(BASE32_DECODE_MAP.get(base32String.charAt(index++)));
         }
         return result.toString();
     }
