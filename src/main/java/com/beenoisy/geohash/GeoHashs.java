@@ -66,40 +66,40 @@ public final class GeoHashs {
     /**
      * Base32 encode table
      */
-    private static final Map<String, String> BASE32_MAP = new HashMap<String, String>();
+    private static final Map<String, String> BASE32_ENCODE_MAP = new HashMap<String, String>();
     static {
-        BASE32_MAP.put("00000", "0");
-        BASE32_MAP.put("00001", "1");
-        BASE32_MAP.put("00010", "2");
-        BASE32_MAP.put("00011", "3");
-        BASE32_MAP.put("00100", "4");
-        BASE32_MAP.put("00101", "5");
-        BASE32_MAP.put("00110", "6");
-        BASE32_MAP.put("00111", "7");
-        BASE32_MAP.put("01000", "8");
-        BASE32_MAP.put("01001", "9");
-        BASE32_MAP.put("01010", "b");
-        BASE32_MAP.put("01011", "c");
-        BASE32_MAP.put("01100", "d");
-        BASE32_MAP.put("01101", "e");
-        BASE32_MAP.put("01110", "f");
-        BASE32_MAP.put("01111", "g");
-        BASE32_MAP.put("10000", "h");
-        BASE32_MAP.put("10001", "j");
-        BASE32_MAP.put("10010", "k");
-        BASE32_MAP.put("10011", "m");
-        BASE32_MAP.put("10100", "n");
-        BASE32_MAP.put("10101", "p");
-        BASE32_MAP.put("10110", "q");
-        BASE32_MAP.put("10111", "r");
-        BASE32_MAP.put("11000", "s");
-        BASE32_MAP.put("11001", "t");
-        BASE32_MAP.put("11010", "u");
-        BASE32_MAP.put("11011", "v");
-        BASE32_MAP.put("11100", "w");
-        BASE32_MAP.put("11101", "x");
-        BASE32_MAP.put("11110", "y");
-        BASE32_MAP.put("11111", "z");
+        BASE32_ENCODE_MAP.put("00000", "0");
+        BASE32_ENCODE_MAP.put("00001", "1");
+        BASE32_ENCODE_MAP.put("00010", "2");
+        BASE32_ENCODE_MAP.put("00011", "3");
+        BASE32_ENCODE_MAP.put("00100", "4");
+        BASE32_ENCODE_MAP.put("00101", "5");
+        BASE32_ENCODE_MAP.put("00110", "6");
+        BASE32_ENCODE_MAP.put("00111", "7");
+        BASE32_ENCODE_MAP.put("01000", "8");
+        BASE32_ENCODE_MAP.put("01001", "9");
+        BASE32_ENCODE_MAP.put("01010", "b");
+        BASE32_ENCODE_MAP.put("01011", "c");
+        BASE32_ENCODE_MAP.put("01100", "d");
+        BASE32_ENCODE_MAP.put("01101", "e");
+        BASE32_ENCODE_MAP.put("01110", "f");
+        BASE32_ENCODE_MAP.put("01111", "g");
+        BASE32_ENCODE_MAP.put("10000", "h");
+        BASE32_ENCODE_MAP.put("10001", "j");
+        BASE32_ENCODE_MAP.put("10010", "k");
+        BASE32_ENCODE_MAP.put("10011", "m");
+        BASE32_ENCODE_MAP.put("10100", "n");
+        BASE32_ENCODE_MAP.put("10101", "p");
+        BASE32_ENCODE_MAP.put("10110", "q");
+        BASE32_ENCODE_MAP.put("10111", "r");
+        BASE32_ENCODE_MAP.put("11000", "s");
+        BASE32_ENCODE_MAP.put("11001", "t");
+        BASE32_ENCODE_MAP.put("11010", "u");
+        BASE32_ENCODE_MAP.put("11011", "v");
+        BASE32_ENCODE_MAP.put("11100", "w");
+        BASE32_ENCODE_MAP.put("11101", "x");
+        BASE32_ENCODE_MAP.put("11110", "y");
+        BASE32_ENCODE_MAP.put("11111", "z");
     }
 
     /**
@@ -172,7 +172,7 @@ public final class GeoHashs {
         int index = 0;
         while (index < binaryNum.length()) {
             String binaryItem = binaryNum.substring(index, index + 5);
-            result.append(BASE32_MAP.get(binaryItem));
+            result.append(BASE32_ENCODE_MAP.get(binaryItem));
             index = index + 5;
         }
         return result.toString();
