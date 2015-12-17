@@ -128,7 +128,7 @@ public final class GeoHashs {
         while (index < latSplit.length()) {
             result.append(latSplit.charAt(index)).append(lonSplit.charAt(index++));
         }
-        return base32(result.toString());
+        return base32encode(result.toString());
     }
 
     /**
@@ -166,7 +166,7 @@ public final class GeoHashs {
         return result.toString();
     }
 
-    private static String base32(
+    private static String base32encode(
                     String binaryNum) {
         StringBuilder result = new StringBuilder();
         int index = 0;
